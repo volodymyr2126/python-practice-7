@@ -16,8 +16,11 @@ def file_read(file_name) -> str:
     :param file_name (str): name of file to read
     :return (str): Text from file
     """
-    with open(file_name, "r") as file:
-        res = file.read()
+    try:
+        with open(file_name, "r") as file:
+            res = file.read()
+    except FileNotFoundError:
+        return "Error"
     return res
 
 
