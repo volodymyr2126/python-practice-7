@@ -1,4 +1,6 @@
 import pandas as pd
+
+
 def terminal_read() -> str:
     """
     Reads text from terminal

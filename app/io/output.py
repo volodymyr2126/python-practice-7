@@ -4,8 +4,10 @@ def terminal_write(content) -> None:
     :param content (Any): content to write
     :return: None
     """
-    print(str(content))
+    print("This is terminal output:\n")
+    print(str(content) + "\n\n")
     return None
+
 
 def file_write(file_name, content) -> None:
     """
@@ -14,6 +16,6 @@ def file_write(file_name, content) -> None:
     :param content (Any): content to write
     :return: None
     """
-    with open(file_name, "w") as file:
-        file.write(str(content))
+    with open(file_name, "a") as file:
+        file.write(str(content) + "\n\n")
     return None
