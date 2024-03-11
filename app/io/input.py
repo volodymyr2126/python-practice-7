@@ -1,4 +1,5 @@
 import pandas as pd
+import pandas.errors
 
 
 def terminal_read() -> str:
@@ -28,7 +29,12 @@ def pd_read(file_name):
     """
     Reads text from file using pandas library.
     :param file_name (str): name of file to read
-    :return (str): Information from file
+    :return (pandas.DataFrame): Information from file
     """
-    res = pd.read_csv(file_name)
+    try:
+        res = pd.read_csv(file_name)
+    except FileNotFoundError:
+        return "Error"
+    except pandas.errors.EmptyDataError:
+        return "Empty file"
     return res
